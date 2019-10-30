@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div class="tmpclass">
+  <div class="jumbotron" style="width:130%;">
+
+    {% if registered %}
+      <h1 style="text-align:center;">Thank You for Registering !<br>Please Login Now</h1>
+    {% else %}
+      <h2><strong>Register Here</strong></h2>
+      <h3>Please fill out the form.</h3><br>
+
+      <form method="POST">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Register">
+      </form>
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}
